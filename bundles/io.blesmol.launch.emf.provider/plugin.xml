@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="io.blesmol.launch.emf.provider.OsgiEmfLaunchConfigurationDelegate"
+            id="io.blesmol.launch.emf.provider"
+            modes="run, debug"
+            name="Blesmol Launcher for EMF">
+      </launchConfigurationType>
+   </extension>
+
+</plugin>

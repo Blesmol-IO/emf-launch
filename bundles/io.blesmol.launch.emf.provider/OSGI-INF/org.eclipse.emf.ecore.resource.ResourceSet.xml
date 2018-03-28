@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.2.0" activate="activate" deactivate="deactivate" factory="org.eclipse.debug.core" name="org.eclipse.emf.ecore.resource.ResourceSet">
+   <service>
+      <provide interface="org.eclipse.emf.ecore.resource.ResourceSet"/>
+   </service>
+   <reference bind="setAdapterFactory" cardinality="1..n" interface="org.eclipse.emf.common.notify.AdapterFactory" name="AdapterFactory" policy="dynamic" policy-option="greedy" target="(org.eclipse.emf.common.notify.type=org.eclipse.debug.core)" unbind="unsetAdapterFactory"/>
+   <reference bind="setPackageRegistry" interface="org.eclipse.emf.ecore.EPackage$Registry" name="PackageRegistry" policy="dynamic" policy-option="greedy" target="(org.eclipse.emf.common.notify.type=org.eclipse.debug.core)" unbind="unsetPackageRegistry"/>
+   <reference bind="setResourceFactoryRegistry" interface="org.eclipse.emf.ecore.resource.Resource$Factory$Registry" name="ResourceFactoryRegistry" policy="dynamic" policy-option="greedy" target="(org.eclipse.emf.common.notify.type=org.eclipse.debug.core)" unbind="unsetResourceFactoryRegistry"/>
+   <reference bind="setURIConverter" interface="org.eclipse.emf.ecore.resource.URIConverter" name="URIConverter" policy="dynamic" policy-option="greedy" target="(org.eclipse.emf.common.notify.type=org.eclipse.debug.core)" unbind="unsetURIConverter"/>
+   <implementation class="io.blesmol.launch.emf.provider.LauncherResourceSetProvider"/>
+</scr:component>

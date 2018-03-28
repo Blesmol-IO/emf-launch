@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Blesmol Launcher for EMF API
+Bundle-SymbolicName: io.blesmol.launch.emf.api
+Bundle-Version: 0.1.0.qualifier
+Automatic-Module-Name: io.blesmol.launch.emf.api
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: io.blesmol.launch.emf.api;version="0.1.0"

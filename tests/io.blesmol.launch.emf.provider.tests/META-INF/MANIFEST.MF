@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Blesmol Launcher for EMF OSGi Providers Tests
+Bundle-SymbolicName: io.blesmol.launch.emf.provider.tests
+Bundle-Version: 0.1.0.qualifier
+Automatic-Module-Name: io.blesmol.launch.emf.provider.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.junit;version="4.12.0"

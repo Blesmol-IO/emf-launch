@@ -1,0 +1,2 @@
+
+# Eclipse Launcher for EMF
