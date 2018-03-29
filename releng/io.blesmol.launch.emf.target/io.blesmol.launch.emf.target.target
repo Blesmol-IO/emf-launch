@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="io.blesmol.launch.emf.target" sequenceNumber="13">
+<?pde version="3.8"?><target name="io.blesmol.launch.emf.target" sequenceNumber="16">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.13.3.v20180301-1149"/>
+<unit id="org.eclipse.jdt.source.feature.group" version="3.13.3.v20180301-0715"/>
+<unit id="org.eclipse.rcp.feature.group" version="4.7.3.v20180301-0715"/>
+<unit id="org.eclipse.sdk.ide" version="4.7.3.M20180301-0715"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.7"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.ecore.xcore.feature.group" version="1.5.0.v20170613-0242"/>
+<unit id="org.eclipse.emf.ecore.xcore.lib.feature.group" version="1.2.100.v20170613-0242"/>
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.13.0.v20170609-0928"/>
+<unit id="org.eclipse.xtext.runtime.feature.group" version="2.12.0.v20170519-1412"/>
+<unit id="org.eclipse.xtext.xbase.lib.feature.group" version="2.12.0.v20170518-0758"/>
 <repository location="http://download.eclipse.org/releases/oxygen/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
@@ -11,15 +22,9 @@
 <unit id="org.hamcrest.text" version="1.1.0.v20090501071000"/>
 <unit id="org.junit" version="4.12.0.v201504281640"/>
 <unit id="org.mockito" version="1.9.5.v201605172210"/>
-<unit id="org.slf4j.api" version="1.7.10.v20170428-1633"/>
+<unit id="org.objenesis" version="1.0.0.v201505121915"/>
+<unit id="org.slf4j.api" version="1.7.2.v20121108-1250"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20180206163158/repository"/>
-</location>
-<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.equinox.sdk.feature.group" version="3.13.3.v20180301-1149"/>
-<unit id="org.eclipse.jdt.source.feature.group" version="3.13.3.v20180301-0715"/>
-<unit id="org.eclipse.rcp.feature.group" version="4.7.3.v20180301-0715"/>
-<unit id="org.eclipse.sdk.ide" version="4.7.3.M20180301-0715"/>
-<repository location="http://download.eclipse.org/eclipse/updates/4.7"/>
 </location>
 </locations>
 </target>

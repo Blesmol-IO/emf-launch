@@ -7,12 +7,10 @@ import java.util.stream.Stream;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.debug.core.ILaunchesListener2;
-import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate2;
 import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -23,6 +21,7 @@ import org.eclipse.emf.edit.provider.IDisposable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.blesmol.launch.emf.api.ISettableDebugTarget;
 import io.blesmol.launch.emf.api.LaunchEmfApi;
 
 public abstract class EmfLaunchConfigurationDelegate implements ILaunchConfigurationDelegate2, ILaunchesListener2 {
@@ -55,7 +54,7 @@ public abstract class EmfLaunchConfigurationDelegate implements ILaunchConfigura
 	 */
 	protected final AtomicBoolean deactivated = new AtomicBoolean(false);
 
-	protected final ILaunchManager launchManager = DebugPlugin.getDefault().getLaunchManager();
+//	protected final ILaunchManager launchManager = DebugPlugin.getDefault().getLaunchManager();
 
 	@SuppressWarnings("unchecked")
 	protected <T> T adaptFirst(ResourceSet resourceSet, Resource resource, Class<T> cls) {
@@ -94,7 +93,7 @@ public abstract class EmfLaunchConfigurationDelegate implements ILaunchConfigura
 		try {
 			resource = rs.getResource(uri, true);
 			return adaptFirst(rs, resource, ILaunch.class);
-		} catch (Exception e) {
+		} catch (Exception e) {		
 			logger.warn("Could not adapt resource {} (rs {}) into an ILaunch", resource, rs);
 		}
 		return null;
@@ -124,6 +123,9 @@ public abstract class EmfLaunchConfigurationDelegate implements ILaunchConfigura
 
 		this.launch = launch;
 
+		// By convention assumes service ranking order is set for adapter factories
+		// First one should be the one that generates the primary
+		// IProcess for the debug target
 		adapterFactories(rs, IProcess.class).forEach(af -> {
 			IProcess process = (IProcess) af.adapt(resource, IProcess.class);
 			if (process != null) {
@@ -132,9 +134,15 @@ public abstract class EmfLaunchConfigurationDelegate implements ILaunchConfigura
 		});
 
 		if (mode.equals(ILaunchManager.DEBUG_MODE)) {
-			IDebugTarget target = adaptFirst(rs, resource, IDebugTarget.class);
+			ISettableDebugTarget target = adaptFirst(rs, resource, ISettableDebugTarget.class);
 			if (target != null) {
+				// By convention take the first process
+				IProcess[] processes = launch.getProcesses();
+				if (processes != null && processes.length > 0) {
+					target.setProcess(processes[0]);
+				}
 				launch.addDebugTarget(target);
+				target.setLaunch(launch);
 			}
 		}
 	}

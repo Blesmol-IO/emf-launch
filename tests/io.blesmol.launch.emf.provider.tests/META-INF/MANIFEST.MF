@@ -2,7 +2,22 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Blesmol Launcher for EMF OSGi Providers Tests
 Bundle-SymbolicName: io.blesmol.launch.emf.provider.tests
+Fragment-Host: io.blesmol.launch.emf.provider.test
 Bundle-Version: 0.1.0.qualifier
 Automatic-Module-Name: io.blesmol.launch.emf.provider.tests
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.junit;version="4.12.0"
+Import-Package: io.blesmol.launch.emf.api;version="0.1.0",
+ io.blesmol.launch.emf.impl;version="0.1.0",
+ org.eclipse.core.runtime.jobs,
+ org.eclipse.debug.core,
+ org.eclipse.debug.core.model,
+ org.eclipse.emf.ecore.resource,
+ org.eclipse.emf.ecore.resource.impl,
+ org.hamcrest;version="1.1.0",
+ org.hamcrest.core;version="1.3.0",
+ org.junit;version="4.12.0",
+ org.junit.rules;version="4.12.0",
+ org.mockito;version="1.9.5",
+ org.mockito.stubbing;version="1.9.5",
+ org.mockito.stubbing.answers;version="1.9.5",
+ org.objenesis;version="1.0.0"

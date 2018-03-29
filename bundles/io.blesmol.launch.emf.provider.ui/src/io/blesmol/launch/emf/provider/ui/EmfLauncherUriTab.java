@@ -13,6 +13,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import io.blesmol.launch.emf.api.LaunchEmfApi;
+import io.blesmol.launch.emf.provider.api.LaunchEmfProviderApi;
 
 public class EmfLauncherUriTab extends AbstractLaunchConfigurationTab {
 
@@ -43,7 +44,7 @@ public class EmfLauncherUriTab extends AbstractLaunchConfigurationTab {
 	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
-			String uriText = configuration.getAttribute(LaunchEmfApi.LaunchAttributes.URI, "blesmol://127.0.0.1:8080/proxy");
+			String uriText = configuration.getAttribute(LaunchEmfApi.LaunchAttributes.URI, LaunchEmfProviderApi.DEFAULT_URI);
 			text.setText(uriText);
 		} catch (CoreException e) {
 			e.printStackTrace();

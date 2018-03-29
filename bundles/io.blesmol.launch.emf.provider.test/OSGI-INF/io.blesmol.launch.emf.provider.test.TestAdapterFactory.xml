@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="io.blesmol.launch.emf.provider.test.TestAdapterFactory">
    <property name="org.eclipse.emf.common.notify.type" value="org.eclipse.debug.core"/>
+   <property name="service.ranking" value="2147483647"/>
    <service>
       <provide interface="org.eclipse.emf.common.notify.AdapterFactory"/>
    </service>

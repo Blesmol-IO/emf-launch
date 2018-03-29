@@ -12,4 +12,5 @@ public interface LaunchEmfProviderApi {
 
 	String COMPONENT_TARGET = "(org.eclipse.emf.common.notify.type=" + COMPONENT_FACTORY + ")";
 
+	String DEFAULT_URI = "blesmol://proxy@127.0.0.1:8080/";
 }
