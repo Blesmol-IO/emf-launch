@@ -23,5 +23,7 @@
 		<module>io.blesmol.launch.emf.provider.test</module>
 		<module>io.blesmol.netty.model.transport</module>
 		<module>io.blesmol.netty.model.transport.edit</module>
+		<module>io.blesmol.netty.model.buffer</module>
+		<module>io.blesmol.netty.model.buffer.edit</module>
 	</modules>
 </project>

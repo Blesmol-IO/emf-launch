@@ -65,4 +65,18 @@
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="io.blesmol.netty.model.buffer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="io.blesmol.netty.model.buffer.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>

@@ -1,0 +1,9 @@
+@GenModel(editDirectory="/io.blesmol.netty.model.buffer.edit/src-gen")
+	// oSGiCompatible="true", forceOverwrite="true", fileExtensions="buffer"
+package io.blesmol.netty.model.buffer
+
+import org.eclipse.emf.ecore.EByteArray
+
+class EByteBufHolder {
+	EByteArray contents
+}
