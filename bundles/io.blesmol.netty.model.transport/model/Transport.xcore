@@ -1,0 +1,37 @@
+@GenModel(editDirectory="/io.blesmol.netty.model.transport.edit/src-gen")
+package io.blesmol.netty.model.transport
+
+class Netty {
+	contains AbstractBootstrap[] bootstraps
+}
+
+class Channel {
+	container AbstractBootstrap bootstrap opposite channels
+	String ^id
+	String localHost
+	int localPort
+	String remoteHost
+	int remotePort
+}
+
+interface AbstractBootstrap {
+	contains Channel[] channels opposite bootstrap
+}
+
+class Bootstrap extends AbstractBootstrap {
+	String connectHost
+	int connectPort
+}
+
+class ServerBootstrap  extends AbstractBootstrap {
+	String bindHost
+	int bindPort
+}
+
+class ProxyServer extends ServerBootstrap {
+	contains ProxyBootstrap[] proxied
+}
+
+class ProxyBootstrap extends Bootstrap {
+	refers Channel serverChannel
+}
