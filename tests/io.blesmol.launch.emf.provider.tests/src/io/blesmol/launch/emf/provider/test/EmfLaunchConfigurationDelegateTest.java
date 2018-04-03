@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.DebugEvent;
+import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.IDebugEventSetListener;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -128,9 +129,15 @@ public class EmfLaunchConfigurationDelegateTest {
 			}
 		};
 
-		vogellaThread.setListener(listener);
+		final DebugPlugin debugPlugin = DebugPlugin.getDefault();
+		// osgi is running, so use it for this part
+		if (debugPlugin != null) {
+			debugPlugin.addDebugEventListener(listener);
+		} else {
+			vogellaThread.setListener(listener);
+		}
 		vogellaThread.suspend();
-		assertTrue(latch.await(100, TimeUnit.MILLISECONDS));
+		assertTrue(latch.await(1000, TimeUnit.MILLISECONDS));
 		// If below test fails, increment wait time above
 		assertTrue(vogellaThread.isSuspended());
 		TestVogellaStackFrame vogellaStackFrame = vogellaThread.getTopStackFrame();

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/io.blesmol.launch.emf.feature_0.1.0.qualifier.jar" id="io.blesmol.launch.emf.feature" version="0.1.0.qualifier">
+      <category name="emflaunch"/>
+   </feature>
+   <category-def name="emflaunch" label="Blesmol Netty for EMF Launch"/>
+</site>

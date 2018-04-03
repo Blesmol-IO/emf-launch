@@ -4,18 +4,13 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.blesmol.launch.emf</groupId>
-	<artifactId>io.blesmol.launch.emf.releng</artifactId>
+	<artifactId>io.blesmol.launch.emf.site</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>eclipse-repository</packaging>
 
 	<parent>
 		<groupId>io.blesmol.launch.emf</groupId>
-		<artifactId>io.blesmol.launch.emf.root</artifactId>
+		<artifactId>io.blesmol.launch.emf.releng</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
-
-	<modules>
-		<module>io.blesmol.launch.emf.site</module>
-		<module>io.blesmol.launch.emf.target</module>
-	</modules>
 </project>
