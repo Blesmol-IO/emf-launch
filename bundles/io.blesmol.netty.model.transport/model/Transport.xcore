@@ -1,8 +1,16 @@
 @GenModel(editDirectory="/io.blesmol.netty.model.transport.edit/src-gen")
 package io.blesmol.netty.model.transport
 
+import io.blesmol.netty.model.buffer.EByteBufHolder
+import org.eclipse.emf.ecore.xml.^type.DateTime
+
 class Netty {
 	contains AbstractBootstrap[] bootstraps
+}
+
+class InboundOutboundByteBuf extends EByteBufHolder {
+	boolean inbound
+	DateTime dateTime
 }
 
 class Channel {
@@ -12,7 +20,7 @@ class Channel {
 	int localPort
 	String remoteHost
 	int remotePort
-	
+	contains InboundOutboundByteBuf[] byteBufs
 }
 
 interface AbstractBootstrap {
