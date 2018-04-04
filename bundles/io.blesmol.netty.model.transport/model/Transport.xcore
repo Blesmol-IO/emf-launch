@@ -15,6 +15,7 @@ class Channel {
 }
 
 interface AbstractBootstrap {
+	String ^id
 	contains Channel[] channels opposite bootstrap
 }
 
