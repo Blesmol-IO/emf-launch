@@ -12,6 +12,7 @@ class Channel {
 	int localPort
 	String remoteHost
 	int remotePort
+	
 }
 
 interface AbstractBootstrap {
@@ -27,10 +28,6 @@ class Bootstrap extends AbstractBootstrap {
 class ServerBootstrap  extends AbstractBootstrap {
 	String bindHost
 	int bindPort
-}
-
-class ProxyServer extends ServerBootstrap {
-	contains ProxyBootstrap[] proxied
 }
 
 class ProxyBootstrap extends Bootstrap {
